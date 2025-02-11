@@ -17,14 +17,7 @@ import java.util.NoSuchElementException;
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
-    @GetMapping("/test")
-    @Operation(summary = "Тестовый метод", responses = {
-            @ApiResponse(description = "Тестовая фраза")
-    })
-    public ResponseEntity<String> test() {
 
-        return ResponseEntity.ok("test");
-    }
     @GetMapping("/find-all")
     public List<ElectroItem> findAll() {
         return  productService.findAllProducts();

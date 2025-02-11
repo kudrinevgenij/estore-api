@@ -4,15 +4,15 @@ import lombok.Data;
 
 @Data
 public class ProductPayload {
-    String name;
+    private final String name;
 
-    Long price;
+    private final Long price;
 
-    Integer count;
+    private final Integer count;
 
-    Long electrotypeId;
+    private final Long electrotypeId;
 
-    Boolean isArchive;
+    private final Boolean isArchive;
 
-    String description;
+    private final String description;
 }

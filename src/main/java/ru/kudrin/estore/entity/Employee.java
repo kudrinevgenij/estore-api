@@ -2,40 +2,43 @@ package ru.kudrin.estore.entity;
 
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "store_employee")
 public class Employee implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_", unique = true, nullable = false)
-	Long id_;
+	private Long id_;
 
 	@Column(name = "lastname", nullable = false, length = 100)
-	String lastName;
+	private String lastName;
 
 	@Column(name = "firstname", nullable = false, length = 100)
-	String firstName;
+	private String firstName;
 
 	@Column(name = "patronymic", nullable = false, length = 100)
-	String patronymic;
+	private String patronymic;
 
 	@Column(name = "birthDate", nullable = false)
-	Date birthDate;
+	private LocalDate birthDate;
 
 	@Column(name = "positionId", nullable = false)
-	Long positionId;
+	private Long positionId;
 
 	@Column(name = "gender", nullable = false)
-	boolean gender;
+	private boolean gender;
 }

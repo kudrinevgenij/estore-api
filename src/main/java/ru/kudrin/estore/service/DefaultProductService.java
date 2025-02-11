@@ -32,8 +32,8 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
-    public Optional<ElectroItem> findProduct(long productId) {
-        return productRepository.findById(productId);
+    public Optional<ElectroItem> findProduct(long id) {
+        return productRepository.findById(id);
     }
 
     @Override
