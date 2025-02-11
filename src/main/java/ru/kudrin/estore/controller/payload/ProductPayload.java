@@ -12,7 +12,7 @@ public class ProductPayload {
 
     Long electrotypeId;
 
-    boolean isArchive;
+    Boolean isArchive;
 
     String description;
 }

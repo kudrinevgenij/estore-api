@@ -2,11 +2,12 @@ package ru.kudrin.estore.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.kudrin.estore.entity.ElectroItem;
 import ru.kudrin.estore.repository.ProductRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -18,8 +19,8 @@ public class DefaultProductService implements ProductService{
         return  productRepository.findAll();
     }
 
-    @Transactional
     @Override
+    @Transactional
     public ElectroItem createProduct(String name,
                                      Long price,
                                      Integer count,
@@ -31,17 +32,35 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
-    public Optional<ElectroItem> findProduct(int productId) {
-        return Optional.empty();
+    public Optional<ElectroItem> findProduct(long productId) {
+        return productRepository.findById(productId);
     }
 
     @Override
-    public void updateProduct(Integer id, String title, String details) {
-
+    @Transactional
+    public void updateProduct(Long id,
+                              String name,
+                              Long price,
+                              Integer count,
+                              Long electrotypeId,
+                              Boolean isArchive,
+                              String description) {
+        productRepository.findById(id)
+                .ifPresentOrElse(product -> {
+                    product.setName(name);
+                    product.setPrice(price);
+                    product.setCount(count);
+                    product.setElectrotypeId(electrotypeId);
+                    product.setArchive(isArchive);
+                    product.setDescription(description);
+                }, () -> {
+                    throw new NoSuchElementException();
+                });
     }
 
     @Override
-    public void deleteProduct(Integer id) {
-
+    @Transactional
+    public void deleteProduct(Long id) {
+            productRepository.deleteById(id);
     }
 }

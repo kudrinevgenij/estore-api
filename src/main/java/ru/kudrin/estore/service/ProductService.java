@@ -2,6 +2,7 @@ package ru.kudrin.estore.service;
 
 import ru.kudrin.estore.entity.ElectroItem;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,9 +16,15 @@ public interface ProductService {
                               boolean isArchive,
                               String description);
 
-    Optional<ElectroItem> findProduct(int productId);
+    Optional<ElectroItem> findProduct(long productId);
 
-    void updateProduct(Integer id, String title, String details);
+    void updateProduct(Long id,
+                       String name,
+                       Long price,
+                       Integer count,
+                       Long electrotypeId,
+                       Boolean isArchive,
+                       String description);
 
-    void deleteProduct(Integer id);
+    void deleteProduct(Long id);
 }
