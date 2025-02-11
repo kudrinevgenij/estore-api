@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS purchase (
 );
 
 CREATE TABLE IF NOT EXISTS shop (
-    shop_id bigint primary key,
+    shop_id bigserial primary key,
     shop_name varchar(250),
     address text
 );

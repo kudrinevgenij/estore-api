@@ -1,18 +1,12 @@
 package ru.kudrin.estore.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import ru.kudrin.estore.controller.payload.EmployeePayload;
-import ru.kudrin.estore.controller.payload.ProductPayload;
-import ru.kudrin.estore.entity.ElectroItem;
 import ru.kudrin.estore.entity.Employee;
-import ru.kudrin.estore.repository.EmployeeRepository;
 import ru.kudrin.estore.service.EmployeeService;
 
 import java.util.List;
@@ -37,9 +31,9 @@ public class EmployeeController {
 
 	@PostMapping("/create")
 	public ResponseEntity<Employee> createEmployee(@RequestBody EmployeePayload payload) {
-		Employee product = service.createEmployee(payload.getFirstName(), payload.getLastName(), payload.getPatronymic(),
+		Employee employee = service.createEmployee(payload.getFirstName(), payload.getLastName(), payload.getPatronymic(),
 				payload.getBirthDate(), payload.getPositionId(), payload.getGender());
-		return ResponseEntity.ok(product);
+		return ResponseEntity.ok(employee);
 	}
 
 	@PostMapping("/update/{id}")
@@ -54,5 +48,4 @@ public class EmployeeController {
 		service.deleteEmployee(id);
 		return ResponseEntity.noContent().build();
 	}
-
 }
