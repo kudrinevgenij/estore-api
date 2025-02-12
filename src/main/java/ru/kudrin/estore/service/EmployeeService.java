@@ -27,4 +27,5 @@ public interface EmployeeService {
                        Boolean gender);
 
     void deleteEmployee(Long id);
+
 }
