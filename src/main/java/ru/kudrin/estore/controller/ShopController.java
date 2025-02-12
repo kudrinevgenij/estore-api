@@ -14,34 +14,34 @@ import java.util.NoSuchElementException;
 
 @RestController
 @Tag(name = "Shop", description = "Сервис для выполнения операций над магазинами")
-@RequestMapping("/estore/api/shop")
+@RequestMapping("/estore/api/shops")
 @RequiredArgsConstructor
 public class ShopController {
     private final ShopService service;
 
-    @GetMapping("/find-all")
+    @GetMapping
     public List<Shop> findAll() {
         return  service.findAll();
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public Shop findById(@PathVariable("id") long id) {
         return  service.findShop(id).orElseThrow(() -> new NoSuchElementException("Магазин не найден."));
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Shop> createShop(@RequestBody ShopPayload payload) {
         Shop shop = service.createShop(payload.getName(), payload.getAddress());
         return ResponseEntity.ok(shop);
     }
 
-    @PostMapping("/update/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<Void> updateShop(@PathVariable("id") long id, @RequestBody ShopPayload payload) {
         service.updateShop(id, payload.getName(), payload.getAddress());
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteShop(@PathVariable("id") long id) {
         service.deleteShop(id);
         return ResponseEntity.noContent().build();
