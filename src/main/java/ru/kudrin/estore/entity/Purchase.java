@@ -13,15 +13,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name = "purchase")
 public class Purchase implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     Long id;
 
