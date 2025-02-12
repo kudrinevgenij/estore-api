@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "posititon_type")
+@Table(name = "position_type")
 public class PositionType implements Serializable {
 
     @Id
