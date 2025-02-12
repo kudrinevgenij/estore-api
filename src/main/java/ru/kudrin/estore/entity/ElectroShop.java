@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class ElectroShop implements Serializable {
 
     @Id
-    @Column(name = "shop_id", nullable = false)
+    @Column(name = "id", nullable = false)
     Long shopId;
 
     @Id
