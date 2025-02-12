@@ -31,6 +31,9 @@ public class Purchase implements Serializable {
     @Column(name = "purchase_date", nullable = false)
     LocalDateTime purchaseDate;
 
+    @Column(name = "store_employee", nullable = false)
+    Long employeeId;
+
     @Column(name = "type_id", nullable = false)
     Long typeId;
 
