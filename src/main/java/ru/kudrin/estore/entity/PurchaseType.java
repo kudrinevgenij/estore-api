@@ -11,10 +11,11 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "purchase_type")
-public class PurchaseType implements Serializable {
+public class PurchaseType {
 
     @Id
     @Column(name = "id", nullable = false)

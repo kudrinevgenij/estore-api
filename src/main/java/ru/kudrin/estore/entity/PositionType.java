@@ -6,13 +6,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "position_type")
-public class PositionType implements Serializable {
+public class PositionType {
 
     @Id
     @Column(name = "id", nullable = false)

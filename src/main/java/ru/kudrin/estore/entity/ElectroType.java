@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Setter
 @Entity
 @Table(name = "electro_type")
-public class ElectroType implements Serializable {
+public class ElectroType {
 
     @Id
     @Column(name = "id", nullable = false)

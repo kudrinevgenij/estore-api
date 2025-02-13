@@ -6,12 +6,13 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "shop")
-public class Shop implements Serializable {
+public class Shop {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

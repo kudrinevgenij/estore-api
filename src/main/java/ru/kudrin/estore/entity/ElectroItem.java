@@ -4,12 +4,13 @@ import java.io.Serializable;
 import javax.persistence.*;
 import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "electro_item")
-public class ElectroItem implements Serializable {
+public class ElectroItem {
 
     private static final long serialVersionUID = 1L;
 

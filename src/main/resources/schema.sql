@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS position_type (
 );
 
 CREATE TABLE IF NOT EXISTS store_employee (
-	id_ bigserial primary key NOT NULL,
+	id bigserial primary key NOT NULL,
 	lastname varchar(100) NOT NULL,
 	firstname varchar(100) NOT NULL,
 	patronymic varchar(100) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS purchase (
     purchase_date timestamp,
     type_id bigint references purchase_type(id),
     shop_id bigint references shop(id),
-    empoyee_id bigint references store_employee(id_)
+    employee_id bigint references store_employee(id)
 );
 
 CREATE TABLE IF NOT EXISTS electro_shop (
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS electro_shop (
 );
 
 CREATE TABLE IF NOT EXISTS electro_employee (
-    employee_id bigint references store_employee(id_),
+    employee_id bigint references store_employee(id),
     electrotype_id bigint references electro_type(id),
     primary key(employee_id, electrotype_id)
 );

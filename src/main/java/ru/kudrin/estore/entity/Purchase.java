@@ -13,16 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "purchase")
-public class Purchase implements Serializable {
+public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -34,7 +33,7 @@ public class Purchase implements Serializable {
     @Column(name = "purchase_date", nullable = false)
     LocalDateTime purchaseDate;
 
-    @Column(name = "store_employee", nullable = false)
+    @Column(name = "employee_id", nullable = false)
     Long employeeId;
 
     @Column(name = "type_id", nullable = false)

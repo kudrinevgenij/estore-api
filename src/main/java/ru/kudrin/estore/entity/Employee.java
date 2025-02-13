@@ -6,22 +6,19 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "store_employee")
-public class Employee implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_", unique = true, nullable = false)
+	@Column(name = "id", unique = true, nullable = false)
 	private Long id_;
 
 	@Column(name = "lastname", nullable = false, length = 100)
