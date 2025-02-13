@@ -3,7 +3,7 @@ package ru.kudrin.estore.controller.payload;
 import lombok.Data;
 
 @Data
-public class ProductPayload {
+public final class ProductPayload {
     private final String name;
 
     private final Long price;
