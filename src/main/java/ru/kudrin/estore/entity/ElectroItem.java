@@ -1,6 +1,5 @@
 package ru.kudrin.estore.entity;
 
-import java.io.Serializable;
 import javax.persistence.*;
 import lombok.*;
 
