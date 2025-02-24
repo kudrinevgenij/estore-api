@@ -39,7 +39,7 @@ public class StorageService {
         }
 
         try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-             BufferedReader reader = new BufferedReader(new InputStreamReader(byteArrayInputStream));
+             BufferedReader reader = new BufferedReader(new InputStreamReader(byteArrayInputStream, "Windows-1251"));
              CSVParser csvParser = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader)) {
 
             for (CSVRecord record : csvParser) {
