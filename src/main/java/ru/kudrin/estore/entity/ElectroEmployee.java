@@ -1,20 +1,18 @@
 package ru.kudrin.estore.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
-@Getter
-@Setter
+@Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@IdClass(ElectroEmployeeId.class)
 @Table(name = "electro_employee")
-public class ElectroEmployee implements Serializable {
+public class ElectroEmployee {
 
     @Id
     @Column(name = "employee_id", nullable = false)
