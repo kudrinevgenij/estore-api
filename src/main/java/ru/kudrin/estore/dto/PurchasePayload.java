@@ -1,4 +1,4 @@
-package ru.kudrin.estore.controller.payload;
+package ru.kudrin.estore.dto;
 
 import lombok.Data;
 

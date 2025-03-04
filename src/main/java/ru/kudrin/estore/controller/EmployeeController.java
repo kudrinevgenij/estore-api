@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import ru.kudrin.estore.controller.payload.EmployeePayload;
+import ru.kudrin.estore.dto.EmployeePayload;
 import ru.kudrin.estore.entity.Employee;
 import ru.kudrin.estore.service.EmployeeService;
 

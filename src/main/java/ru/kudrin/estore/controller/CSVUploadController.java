@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import ru.kudrin.estore.service.StorageService;
+import ru.kudrin.estore.service.CSVUploadService;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import java.io.IOException;
 @RequestMapping("/estore/api/upload")
 public class CSVUploadController {
 
-    private final StorageService storageService;
+    private final CSVUploadService service;
 
     @PostMapping
     public ResponseEntity<String> uploadZipFile(@RequestParam("file") MultipartFile file) {
@@ -25,7 +25,7 @@ public class CSVUploadController {
         }
 
         try {
-            storageService.handle(file.getBytes());
+            service.handle(file.getBytes());
             return ResponseEntity.ok("Файл успешно загружен и обработан.");
         } catch (IOException e) {
             e.printStackTrace();

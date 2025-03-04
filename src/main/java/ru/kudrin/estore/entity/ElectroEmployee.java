@@ -13,12 +13,14 @@ import lombok.NoArgsConstructor;
 @IdClass(ElectroEmployeeId.class)
 @Table(name = "electro_employee")
 public class ElectroEmployee {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    Long id;
+
     @Column(name = "employee_id", nullable = false)
     Long employeeId;
 
-    @Id
     @Column(name = "electrotype_id", nullable = false)
     Long electroTypeId;
 }

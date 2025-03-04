@@ -3,7 +3,7 @@ package ru.kudrin.estore.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.kudrin.estore.controller.payload.ProductPayload;
+import ru.kudrin.estore.dto.ProductPayload;
 import ru.kudrin.estore.entity.ElectroItem;
 import ru.kudrin.estore.service.ProductService;
 

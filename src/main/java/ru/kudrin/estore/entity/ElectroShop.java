@@ -15,12 +15,14 @@ import java.io.Serializable;
 @IdClass(ElectroShopId.class)
 @Table(name = "electro_shop")
 public class ElectroShop implements Serializable {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    Long id;
+
+    @Column(name = "shop_id", nullable = false)
     Long shopId;
 
-    @Id
     @Column(name = "electroitem_id", nullable = false)
     Long electroItemId;
 
