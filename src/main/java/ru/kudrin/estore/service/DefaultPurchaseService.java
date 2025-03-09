@@ -17,7 +17,7 @@ public class DefaultPurchaseService implements PurchaseService {
 
     @Override
     public List<Purchase> findAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override

@@ -66,14 +66,11 @@ public class CSVUploadService {
                 if (entry.getName().endsWith(".csv")) {
                     String tableName = getTableName(entry.getName());
                     List<CSVRecord> records = getCSVRecords(new ByteArrayInputStream(zipInputStream.readAllBytes()));
-                    System.out.println(tableName);
-                    System.out.println(records);
                     csvFiles.put(tableName, records);
                 }
                 zipInputStream.closeEntry();
             }
         }
-        System.out.println(csvFiles);
         importData(csvFiles);
     }
 
@@ -93,7 +90,6 @@ public class CSVUploadService {
 
     private String preprocessCsvContent(InputStream inputStream) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "Windows-1251"))) {
-            System.out.println("препроцессинг");
             return reader.lines()
                     .map(line -> line.replaceAll(";$", ""))
                     .collect(Collectors.joining("\n"));
@@ -119,25 +115,15 @@ public class CSVUploadService {
 
     private Object mapToEntity(Class<?> entityClass, CSVRecord record) {
         try {
-            System.out.println(record.toMap());
-            System.out.println("маппинг сущности " + entityClass.getSimpleName() + record);
-            System.out.println("Заголовки CSV: " + record.toMap().keySet());
             Object entity = entityClass.getDeclaredConstructor().newInstance();
             for (Field field : entityClass.getDeclaredFields()) {
                 field.setAccessible(true);
                 String fieldName = field.getName();
                 for (String value : csvToEntityMapping.getOrDefault(fieldName, List.of(fieldName))) {
                     if (record.isMapped(value)) {
-                        System.out.println(fieldName);
-                        System.out.println(field.getType());
                         field.set(entity, convertValue(field.getType(), record.get(value)));
                     }
                 }
-
-
-//                if (!record.isMapped()) {
-//                    System.out.println("Поле не найдено в CSV: " + fieldName);
-//                }
             }
             System.out.println(entity);
             return entity;
@@ -153,7 +139,7 @@ public class CSVUploadService {
         if (fieldType == Integer.class || fieldType == int.class) return Integer.parseInt(value);
         if (fieldType == Long.class || fieldType == long.class) return Long.parseLong(value);
         if (fieldType == Double.class || fieldType == double.class) return Double.parseDouble(value);
-        if (fieldType == Boolean.class || fieldType == boolean.class) return Boolean.parseBoolean(value);
+        if (fieldType == Boolean.class || fieldType == boolean.class) return "1".equals(value) || "true".equalsIgnoreCase(value);
         if (fieldType == LocalDate.class) return LocalDate.parse(value, dateFormatter);
         if (fieldType == LocalDateTime.class) return LocalDateTime.parse(value, dateTimeFormatter);
         return value;
