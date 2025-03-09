@@ -19,5 +19,7 @@ public final class EmployeePayload {
 
     private final Long positionId;
 
+    private final Long shopId;
+
     private final Boolean gender;
 }

@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(ElectroEmployeeId.class)
 @Table(name = "electro_employee")
 public class ElectroEmployee {
     @Id

@@ -50,7 +50,7 @@ public class DefaultProductService implements ProductService{
                     product.setName(name);
                     product.setPrice(price);
                     product.setCount(count);
-                    product.setElectrotypeId(electrotypeId);
+                    product.setElectroTypeId(electrotypeId);
                     product.setArchive(isArchive);
                     product.setDescription(description);
                 }, () -> {

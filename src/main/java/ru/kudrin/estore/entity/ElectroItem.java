@@ -6,6 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "electro_item")
@@ -28,7 +29,7 @@ public class ElectroItem {
     private Integer count;
 
     @Column(name = "electrotype_id", nullable = false)
-    private Long electrotypeId;
+    private Long electroTypeId;
 
     @Column(name = "archive", nullable = false)
     private boolean isArchive;

@@ -3,13 +3,20 @@ CREATE TABLE IF NOT EXISTS position_type (
     name varchar(150)
 );
 
+CREATE TABLE IF NOT EXISTS shop (
+   id bigserial primary key,
+    name varchar(250),
+    address text
+);
+
 CREATE TABLE IF NOT EXISTS employee (
 	id bigserial primary key NOT NULL,
 	lastname varchar(100) NOT NULL,
 	firstname varchar(100) NOT NULL,
 	patronymic varchar(100) NOT NULL,
-	birth_date timestamp NOT NULL,
+	birthdate timestamp NOT NULL,
 	position_id bigint references position_type(id) NOT NULL,
+	shop_id bigint references shop(id) NOT NULL,
 	gender bool NOT NULL
 );
 
@@ -31,12 +38,6 @@ CREATE TABLE IF NOT EXISTS electro_item (
 CREATE TABLE IF NOT EXISTS purchase_type (
     id bigserial primary key,
     name varchar(150)
-);
-
-CREATE TABLE IF NOT EXISTS shop (
-   id bigserial primary key,
-    shop_name varchar(250),
-    address text
 );
 
 CREATE TABLE IF NOT EXISTS purchase (

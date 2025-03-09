@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(ElectroShopId.class)
 @Table(name = "electro_shop")
 public class ElectroShop implements Serializable {
     @Id

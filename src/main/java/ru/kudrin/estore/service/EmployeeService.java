@@ -14,6 +14,7 @@ public interface EmployeeService {
                               String patronymic,
                               LocalDate birthDate,
                               Long positionId,
+                              Long shopId,
                               Boolean gender);
 
     Optional<Employee> findEmployee(long productId);
@@ -24,6 +25,7 @@ public interface EmployeeService {
                        String patronymic,
                        LocalDate birthDate,
                        Long positionId,
+                       Long shopid,
                        Boolean gender);
 
     void deleteEmployee(Long id);

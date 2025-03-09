@@ -28,8 +28,9 @@ public class DefaultEmployeeService implements EmployeeService {
                                    String patronymic,
                                    LocalDate birthDate,
                                    Long positionId,
+                                   Long shopId,
                                    Boolean gender) {
-        return repository.save(new Employee(null, firstName, lastName, patronymic, birthDate, positionId, gender));
+        return repository.save(new Employee(null, firstName, lastName, patronymic, birthDate, positionId, shopId, gender));
     }
 
     @Override
@@ -45,6 +46,7 @@ public class DefaultEmployeeService implements EmployeeService {
                                String patronymic,
                                LocalDate birthDate,
                                Long positionId,
+                               Long shopId,
                                Boolean gender) {
         repository.findById(id)
                 .ifPresentOrElse(employee -> {
@@ -53,6 +55,7 @@ public class DefaultEmployeeService implements EmployeeService {
                     employee.setPatronymic(patronymic);
                     employee.setBirthDate(birthDate);
                     employee.setPositionId(positionId);
+                    employee.setShopId(shopId);
                     employee.setGender(gender);
                 }, () -> {
                     throw new NoSuchElementException();

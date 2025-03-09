@@ -32,14 +32,14 @@ public class EmployeeController {
 	@PostMapping
 	public ResponseEntity<Employee> createEmployee(@RequestBody EmployeePayload payload) {
 		Employee employee = service.createEmployee(payload.getFirstName(), payload.getLastName(), payload.getPatronymic(),
-				payload.getBirthDate(), payload.getPositionId(), payload.getGender());
+				payload.getBirthDate(), payload.getPositionId(), payload.getShopId(), payload.getGender());
 		return ResponseEntity.ok(employee);
 	}
 
 	@PatchMapping("/{id}")
 	public ResponseEntity<Void> updateEmployee(@PathVariable("id") long id, @RequestBody EmployeePayload payload) {
 		service.updateEmployee(id, payload.getFirstName(), payload.getLastName(), payload.getPatronymic(),
-				payload.getBirthDate(), payload.getPositionId(), payload.getGender());
+				payload.getBirthDate(), payload.getPositionId(), payload.getShopId(), payload.getGender());
 		return ResponseEntity.noContent().build();
 	}
 
