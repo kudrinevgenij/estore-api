@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Estore</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header class="header">
+    <h3 class="logo">Estore</h3>
+</header>
+
+<div class="container">
+    <nav class="sidebar">
+        <h3 class="sidebar_header">Разделы</h3>
+        <a href="#">Электротовары</a>
+        <a href="#">Покупки</a>
+        <a href="#">Сотрудники</a>
+        <a href="#">Справочники</a>
+    </nav>
+    <div class="content">
+        <h3>Магазины</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Название</th>
+                <th scope="col">Адрес</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="shop: ${shops}">
+                <td th:text="${shop.shopId}"/>
+                <td><a th:text="${shop.name}" th:href="@{estore/api/shops/{shopId}(shopId=${shop.shopId})}"></a>
+                </td>
+                <td th:text="${shop.address}"/>
+            </tr>
+            </tbody>
+        </table>
+        <form class="upload-form" action="/estore/api/uploads" method="post" enctype="multipart/form-data">
+            <label for="file">Выберите файл:</label>
+            <input type="file" id="file" name="file" required>
+            <br>
+            <button type="submit">Загрузить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
