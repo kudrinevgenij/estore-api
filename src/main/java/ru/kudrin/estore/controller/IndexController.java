@@ -4,10 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.kudrin.estore.entity.Shop;
 import ru.kudrin.estore.service.ShopService;
 
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -19,5 +17,10 @@ public class IndexController {
     public String getIndex(Model model) {
         model.addAttribute("shops", service.findAll());
         return "index.html";
+    }
+
+    @GetMapping("/create")
+    public String getCreateShopPage() {
+        return "create.html";
     }
 }

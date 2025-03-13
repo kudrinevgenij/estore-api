@@ -124,7 +124,6 @@ public class CSVUploadService {
                     }
                 }
             }
-            System.out.println(entity);
             return entity;
         } catch (Exception e) {
             throw new RuntimeException("Ошибка при маппинге CSV -> Entity: " + entityClass.getSimpleName(), e);

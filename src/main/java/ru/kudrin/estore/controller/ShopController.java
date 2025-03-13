@@ -35,6 +35,12 @@ public class ShopController {
         return ResponseEntity.ok(shop);
     }
 
+    @PostMapping("/save")
+    public ResponseEntity<Shop> createShopFromRestClient(@RequestParam String name, String address) {
+        Shop shop = service.createShop(name, address);
+        return ResponseEntity.ok(shop);
+    }
+
     @PatchMapping("/{id}")
     public ResponseEntity<Void> updateShop(@PathVariable("id") long id, @RequestBody ShopPayload payload) {
         service.updateShop(id, payload.getName(), payload.getAddress());

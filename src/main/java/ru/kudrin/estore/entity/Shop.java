@@ -12,15 +12,14 @@ import lombok.*;
 @AllArgsConstructor
 @Table(name = "shop")
 public class Shop {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
-	Long shopId;
+	private Long id;
 
 	@Column(name = "name", nullable = false)
-	String name;
+	private String name;
 
 	@Column(name = "address", nullable = false)
-	String address;
+	private String address;
 }

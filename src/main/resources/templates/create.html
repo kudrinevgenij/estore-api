@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Estore</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header class="header">
+    <h3 class="logo">Estore</h3>
+    <a href="/" class="nav-link">Home</a>
+</header>
+
+<div class="container">
+    <nav class="sidebar">
+        <h3 class="sidebar_header">Разделы</h3>
+        <a href="#">Электротовары</a>
+        <a href="#">Покупки</a>
+        <a href="#">Сотрудники</a>
+        <a href="#">Справочники</a>
+    </nav>
+    <div class="content">
+        <h3>Добавить магазин</h3>
+        <form  th:action="@{/estore/api/shops/save}" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label"><b>Название</b></label>
+                <input type="text" id="name" name="name" placeholder="название магазина">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label"><b>Название</b></label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="адрес магазина">
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6"><a class="btn btn-danger w-100" th:href="@{/}">Отмена</a></div>
+                        <div class="col-6"><button class="btn btn-primary w-100" type="submit">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

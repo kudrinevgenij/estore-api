@@ -12,11 +12,9 @@ import lombok.*;
 @Table(name = "electro_item")
 public class ElectroItem {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "name", nullable = false, length = 100)

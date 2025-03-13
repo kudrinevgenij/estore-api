@@ -8,7 +8,9 @@
 <body>
 <header class="header">
     <h3 class="logo">Estore</h3>
+    <a href="/" class="nav-link">Home</a>
 </header>
+
 
 <div class="container">
     <nav class="sidebar">
@@ -30,13 +32,16 @@
             </thead>
             <tbody>
             <tr th:each="shop: ${shops}">
-                <td th:text="${shop.shopId}"/>
-                <td><a th:text="${shop.name}" th:href="@{estore/api/shops/{shopId}(shopId=${shop.shopId})}"></a>
+                <td th:text="${shop.id}"/>
+                <td><a th:text="${shop.name}" th:href="@{estore/api/shops/{shopId}(shopId=${shop.id})}"></a>
                 </td>
                 <td th:text="${shop.address}"/>
             </tr>
             </tbody>
         </table>
+        <div>
+            <a href="create"><button>Добавить магазин</button></a>
+        </div>
         <form class="upload-form" action="/estore/api/uploads" method="post" enctype="multipart/form-data">
             <label for="file">Выберите файл:</label>
             <input type="file" id="file" name="file" required>

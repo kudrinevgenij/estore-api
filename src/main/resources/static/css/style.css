@@ -1,11 +1,20 @@
 .header {
+    display: flex;
     background-color: #333;
     height: 50px
 }
 
 .logo {
-    padding: 20px;
     color: white;
+}
+
+.nav-link {
+    color: white;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
 }
 
 .sidebar_header {
