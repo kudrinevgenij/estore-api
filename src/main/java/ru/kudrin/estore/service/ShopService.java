@@ -1,5 +1,6 @@
 package ru.kudrin.estore.service;
 
+import ru.kudrin.estore.dto.ShopWithCashDTO;
 import ru.kudrin.estore.entity.Shop;
 
 import java.util.List;
@@ -15,5 +16,7 @@ public interface ShopService {
     void updateShop(Long id, String name, String address);
 
     void deleteShop(Long id);
+
+    Optional<ShopWithCashDTO> findByIdWithCash(Long id);
 
 }

@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.kudrin.estore.service.EmployeeService;
-import ru.kudrin.estore.service.ShopService;
 
 
 @Controller
@@ -18,7 +17,7 @@ public class EmployeeClientController {
 
     @GetMapping
     public String getEmployeesPage(Model model) {
-        model.addAttribute("employees", service.findAll());
+        model.addAttribute("employees", service.findAllWithShopAndPosition());
         return "employees.html";
     }
 }

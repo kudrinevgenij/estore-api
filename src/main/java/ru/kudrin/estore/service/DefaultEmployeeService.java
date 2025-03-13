@@ -2,6 +2,7 @@ package ru.kudrin.estore.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.kudrin.estore.dto.EmployeeViewDTO;
 import ru.kudrin.estore.entity.Employee;
 import ru.kudrin.estore.repository.EmployeeRepository;
 
@@ -66,5 +67,10 @@ public class DefaultEmployeeService implements EmployeeService {
     @Transactional
     public void deleteEmployee(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public List<EmployeeViewDTO> findAllWithShopAndPosition() {
+        return repository.findAllWithShopAndPosition();
     }
 }

@@ -28,6 +28,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Название</th>
                 <th scope="col">Адрес</th>
+                <th scope="col">Доплнительно</th>
             </tr>
             </thead>
             <tbody>
@@ -36,6 +37,8 @@
                 <td><a th:text="${shop.name}" th:href="@{estore/api/shops/{shopId}(shopId=${shop.id})}"></a>
                 </td>
                 <td th:text="${shop.address}"/>
+                <td><a th:text="Данные" th:href="@{estore/api/shops/with-cash/{shopId}(shopId=${shop.id})}"></a>
+                </td>
             </tr>
             </tbody>
         </table>

@@ -2,6 +2,7 @@ package ru.kudrin.estore.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.kudrin.estore.dto.ShopWithCashDTO;
 import ru.kudrin.estore.entity.Shop;
 import ru.kudrin.estore.repository.ShopRepository;
 
@@ -47,5 +48,10 @@ public class DefaultShopService implements ShopService{
     @Transactional
     public void deleteShop(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Optional<ShopWithCashDTO> findByIdWithCash(Long id) {
+        return repository.findByIdWithCash(id);
     }
 }

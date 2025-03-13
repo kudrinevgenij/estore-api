@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import ru.kudrin.estore.dto.ShopPayload;
+import ru.kudrin.estore.dto.ShopWithCashDTO;
 import ru.kudrin.estore.entity.Shop;
 import ru.kudrin.estore.service.ShopService;
 
@@ -27,6 +28,11 @@ public class ShopController {
     @GetMapping("/{id}")
     public Shop findById(@PathVariable("id") long id) {
         return  service.findShop(id).orElseThrow(() -> new NoSuchElementException("Магазин не найден."));
+    }
+
+    @GetMapping("/with-cash/{id}")
+    public ShopWithCashDTO findByIdWithCashPayment(@PathVariable("id") long id) {
+        return  service.findByIdWithCash(id).orElseThrow(() -> new NoSuchElementException("Данные по этому магазину отсутствуют."));
     }
 
     @PostMapping
