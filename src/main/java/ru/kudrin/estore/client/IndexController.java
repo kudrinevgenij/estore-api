@@ -1,4 +1,4 @@
-package ru.kudrin.estore.controller;
+package ru.kudrin.estore.client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ public class IndexController {
     private final ShopService service;
 
     @GetMapping
-    public String getIndex(Model model) {
+    public String getIndexPage(Model model) {
         model.addAttribute("shops", service.findAll());
         return "index.html";
     }
