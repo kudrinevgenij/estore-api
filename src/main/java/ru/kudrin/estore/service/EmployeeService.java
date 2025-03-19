@@ -32,4 +32,6 @@ public interface EmployeeService {
     void deleteEmployee(Long id);
 
     List<EmployeeViewDTO> findAllWithShopAndPosition();
+
+    Optional<Employee> findBestSmartWatchSeller();
 }

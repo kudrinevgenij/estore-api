@@ -14,7 +14,8 @@ public interface ShopRepository extends JpaRepository<Shop, Long> {
             "FROM Shop s " +
             "JOIN Purchase p ON p.shopId = s.id " +
             "JOIN ElectroItem e ON e.id = p.electroItemId " +
-            "WHERE s.id = ?1 AND p.typeId = 1 " +
+            "JOIN PurchaseType pt ON pt.id = p.typeId " +
+            "WHERE s.id = ?1 AND pt.name = 'Наличные' " +
             "GROUP BY s.name")
     Optional<ShopWithCashDTO> findByIdWithCash(Long id);
 }

@@ -73,4 +73,9 @@ public class DefaultEmployeeService implements EmployeeService {
     public List<EmployeeViewDTO> findAllWithShopAndPosition() {
         return repository.findAllWithShopAndPosition();
     }
+
+    @Override
+    public Optional<Employee> findBestSmartWatchSeller() {
+        return repository.findBestSmartWatchSeller().stream().findFirst();
+    }
 }
