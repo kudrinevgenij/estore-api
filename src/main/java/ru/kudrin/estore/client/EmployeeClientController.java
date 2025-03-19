@@ -21,9 +21,7 @@ public class EmployeeClientController {
     @GetMapping
     public String getEmployeesPage(Model model) {
         Optional<Employee> bestEmployee = service.findBestSmartWatchSeller();
-        System.out.println(bestEmployee.orElse(null));
         model.addAttribute("employees", service.findAllWithShopAndPosition());
-        System.out.println(bestEmployee.isPresent());
         if (bestEmployee.isPresent()) {
             model.addAttribute("bestEmployee", bestEmployee.orElse(null));
         } else {
